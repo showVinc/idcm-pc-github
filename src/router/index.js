@@ -5,7 +5,8 @@ import SettingIndex from '@/pages/setting/set'    //  安全设置
 import SettingLog from '@/pages/setting/log'    //  安全记录
 import SettingCertify from '@/pages/setting/certify'    //  实名认证
 import SetMobile from '@/pages/setting/mobile'    //  绑定邮箱
-import SetFundpassword from '@/pages/setting/fundpassword'    //  绑定邮箱
+import SetFundpassword from '@/pages/setting/fundpassword'    //  资金密码
+import SetUserinfo from '@/pages/setting/userinfo'    //  修改资料
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
           path: '/setting/index/fundpassword',
           name: '资金密码',
           component: SetFundpassword
+        },
+        {
+          path: '/setting/index/userinfo',
+          name: '修改资料',
+          component: SetUserinfo
         }
       ]
     },

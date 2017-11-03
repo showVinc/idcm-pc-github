@@ -17,7 +17,7 @@
             <p>{{ userinfo.uid }}</p>
           </div>
 
-          <router-link to="/setting" class="link">资料修改</router-link>
+          <router-link to="/setting/index/userinfo" class="link">资料修改</router-link>
         </div>
 
         <div class="node" v-for="item,i in node" :key="i">
