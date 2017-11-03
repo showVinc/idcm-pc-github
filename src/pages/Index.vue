@@ -1,10 +1,6 @@
 <template>
   <div>
-<<<<<<< HEAD
     <Top></Top>
-=======
-ageageg
->>>>>>> e32a665808b89c92be808bffefd7333ddca9539f
   </div>
 </template>
 <script>
