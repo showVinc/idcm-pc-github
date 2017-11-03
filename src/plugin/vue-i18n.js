@@ -8,7 +8,7 @@ import en from '@/language/en-us'
 Vue.use(VueI18n)
 
 export default new VueI18n({
-  locale: store.state.language,
+  locale: 'zh-cn',
   messages: {
     'zh-cn':zh,   // 中文语言包
     'en-us':en,   // 中文语言包
