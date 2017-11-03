@@ -17,7 +17,42 @@
 <script>
   export default {
     props: {
-      data: Array
+      type: String
+    },
+    data () {
+      return {
+        data: []
+      }
+    },
+    mounted () {
+      this.setMenu()
+    },
+    watch: {
+      '$router' () {
+      //  this.setMenu()
+      }
+    },
+    methods: {
+      setMenu () {
+        let data = this.$router.options.routes
+        let cache = []
+        for(let k in data) {
+          if(data[k].type === this.type) {
+            if(cache.length < data[k].pos) {
+              for(let i=0; i<data[k].pos - cache.length; i++) {
+                cache.push({})
+              }
+            }
+
+            cache.splice(data[k].pos - 1, 1, {
+              label: data[k].name,
+              url: data[k].path
+            })
+          }
+        }
+
+        this.data = cache
+      }
     }
   }
 </script>

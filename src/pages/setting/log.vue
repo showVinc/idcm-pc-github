@@ -5,7 +5,7 @@
     <div class="p-content">
       <!--  左侧菜单  -->
       <div class="p-aside">
-        <idcm-left-menu :data="data"></idcm-left-menu>
+        <idcm-left-menu :type="'setting'"></idcm-left-menu>
       </div>
 
       <!--  右侧内容  -->
@@ -18,14 +18,9 @@
 
 <script>
   export default {
-    data () {
-      return {
-        data: [
-          {label: '安全设置', url: '/setting/index'},
-          {label: '安全记录', url: '/setting/log'},
-          {label: '实名认证', url: '/setting/certify'}
-        ]
-      }
-    }
+
   }
 </script>
+<style lang="less" scoped>
+
+</style>
