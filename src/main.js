@@ -11,6 +11,9 @@ import i18n from '@/plugin/vue-i18n'
 import Axios from '@/plugin/axios'
 import '@/assets/css/app.less'
 import Moment from 'moment'
+import IdcmComponent from '@/components/index'
+
+Vue.use(IdcmComponent)
 
 Vue.use(ElementUI)
 
