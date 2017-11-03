@@ -25,6 +25,6 @@
     min-height: 100vh;
     position: relative;
     margin-bottom: 56px;
-    margin-top: 117px;
+    margin-top: 100px;
   }
 </style>
