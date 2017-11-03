@@ -1,5 +1,6 @@
 <template>
   <div>
+<<<<<<< HEAD
     <head-top :num="0"></head-top>
     <div class="homeTop">
       <div v-for="item in homeTop">
@@ -149,6 +150,9 @@
       </div>
     </div>
     <public-foot></public-foot>
+=======
+    <Top></Top>
+>>>>>>> 87cb82485f11cda06557726324fe3582c1595dff
   </div>
 </template>
 <script>
