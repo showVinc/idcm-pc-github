@@ -1,6 +1,6 @@
 <template>
   <div class="Foot">
-    Copyrights © RedFlag international Family Office.All Rights Reserved
+    ©Copyright by IDCMEX.COM 2017
   </div>
 </template>
 <script>
@@ -13,15 +13,14 @@
 <style lang="less" type="text/less" scoped>
   .Foot {
     min-width: 1024px;
-    font-size: 12px;
+    font-size: 14px;
     width: 100%;
     height: 78px;
     position: absolute;
-    background: #676c73;
-    box-shadow: 0 1px 6px #ccc;
+    background: #0b131c;
     bottom: -78px;
     left: 0;
-    color: #fff;
+    color: #7d7d7d;
     display: flex;
     align-items: center;
     justify-content: center;

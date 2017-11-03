@@ -4,7 +4,7 @@
       <img src="../assets/images/home/logo.png">
     </div>
     <ul>
-      <li v-for="(item,index) in topNav" :class="{'navActive':topNum==index&&topNum!=6}" @click="navClick(index)">
+      <li v-for="(item,index) in topNav" :class="{'navActive':num==index&&num!=6}" @click="navClick(index)">
         <div>
           {{item.key?'':item.name}}
         </div>
@@ -22,9 +22,11 @@
 </template>
 <script>
   export default {
+    props:{
+      num:Number
+    },
     data(){
       return{
-        topNum:0,
         topNav:[
           {name:'首页'},
           {name:'交易所'},
@@ -48,11 +50,16 @@
     },
     methods:{
       navClick(index){
-        if(index!=6&&index!=7&&index!=8){
-          this.topNum =index
+        console.log(index)
+        switch (index){
+          case 1:
+            break;
+          case 7:
+            this.$router.push('/login')
+            break;
         }
       }
-    }
+    },
   }
 </script>
 <style lang="less" type="text/less" scoped>

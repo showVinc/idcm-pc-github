@@ -4,6 +4,9 @@ import Index from '@/pages/Index'
 import SettingIndex from '@/pages/setting/set'    //  安全设置
 import SettingLog from '@/pages/setting/log'    //  安全记录
 import SettingCertify from '@/pages/setting/certify'    //  实名认证
+import Login from '@/pages/login/Login'    //  登录
+import Register from '@/pages/login/Register'    //  注册
+import Forget from '@/pages/login/Forget'    //  忘记密码
 
 Vue.use(Router)
 
@@ -35,6 +38,21 @@ export default new Router({
       path: '/setting/certify',
       name: '实名认证',
       component: SettingCertify
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/forget',
+      name: 'Forget',
+      component: Forget
     }
   ]
 })
