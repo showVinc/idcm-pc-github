@@ -10,7 +10,21 @@
 
       <!--  右侧内容  -->
       <div class="p-article">
-        安全设置首页
+        <div class="userinfo">
+          <img src="" alt="">
+          <div class="info">
+            <h3 class="title">Elvis</h3>
+            <p>UID:(HY553202)</p>
+          </div>
+
+          <router-link>资料修改</router-link>
+        </div>
+
+
+
+
+
+
       </div>
     </div>
   </div>
@@ -22,6 +36,32 @@
   }
 </script>
 <style lang="less" scoped>
+  .userinfo {
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    .info {
+      margin-left: 15px;
+      .title, p {
+        margin: 0;
+        line-height: 26px;
+        font-weight: normal;
+      }
+
+      .title {
+        color: #ebebeb;
+        font-size: 18px;
+      }
+      p {
+        color: #ccc;
+      }
+    }
+  }
+
 
 </style>
 
