@@ -4,11 +4,9 @@ import Index from '@/pages/Index'
 import SettingIndex from '@/pages/setting/set'    //  安全设置
 import SettingLog from '@/pages/setting/log'    //  安全记录
 import SettingCertify from '@/pages/setting/certify'    //  实名认证
-<<<<<<< HEAD
 import Login from '@/pages/login/Login'    //  登录
 import Register from '@/pages/login/Register'    //  注册
 import Forget from '@/pages/login/Forget'    //  忘记密码
-=======
 import SetMobile from '@/pages/setting/mobile'    //  绑定邮箱
 import SetFundpassword from '@/pages/setting/fundpassword'    //  资金密码
 import SetUserinfo from '@/pages/setting/userinfo'    //  修改资料
@@ -23,7 +21,6 @@ import Pmack from '@/pages/property/mack.vue'    //  成交记录
 import Pfund from '@/pages/property/fund.vue'    //  资金流水记录
 import Pposition from '@/pages/property/position.vue'    //  持仓流水记录
 import Pterrace from '@/pages/property/terrace.vue'    //  平台互转
->>>>>>> 87cb82485f11cda06557726324fe3582c1595dff
 
 Vue.use(Router)
 
@@ -73,7 +70,6 @@ export default new Router({
       name: '实名认证',
       component: SettingCertify
     },
-<<<<<<< HEAD
     {
       path: '/login',
       name: 'Login',
@@ -88,8 +84,7 @@ export default new Router({
       path: '/forget',
       name: 'Forget',
       component: Forget
-    }
-=======
+    },
    // 资产
     {path: '/property', redirect: '/property/assetview'},
     {
@@ -154,7 +149,6 @@ export default new Router({
       path: '/property/terrace',
       name: '平台互转',
       component: Pterrace
-    },
->>>>>>> 87cb82485f11cda06557726324fe3582c1595dff
+    }
   ]
 })
