@@ -1,5 +1,4 @@
 // 语言切换工具
-import store from '@/store'
 
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'

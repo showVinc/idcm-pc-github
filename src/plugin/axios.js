@@ -1,6 +1,4 @@
 import axios from 'axios'
-import store from '@/store'
-import SHA1 from '@/plugin/sha1'
 
 let service = axios.create({
   headers: {}
