@@ -1,6 +1,6 @@
 <template>
   <div class="htadTop">
-    <div>
+    <div @click="$router.push('/')">
       <img src="../assets/images/home/logo.png">
     </div>
     <ul>
@@ -50,12 +50,17 @@
     },
     methods:{
       navClick(index){
-        console.log(index)
         switch (index){
           case 1:
             break;
+          case 3:
+            this.$router.push('/news')
+            break;
           case 7:
             this.$router.push('/login')
+            break;
+          case 8:
+            this.$router.push('/register')
             break;
         }
       }

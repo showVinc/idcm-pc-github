@@ -21,24 +21,24 @@
         </el-select>
       </div>
       <div class="bgDev">
-        <input type="text" placeholder="请输入手机号">
+        <input type="text" placeholder="请输入手机号" v-model="post.tel">
       </div>
       <div class="lastInput bgDev">
-        <input type="text" placeholder="验证码">
+        <input type="text" placeholder="验证码" v-model="post.code">
         <div>
           发送验证码
         </div>
       </div>
       <div class="bgDev">
-        <input type="text" placeholder="密码">
+        <input type="text" placeholder="密码" v-model="post.psw">
       </div>
       <div class="bgDev">
-        <input type="text" placeholder="确认密码">
+        <input type="text" placeholder="确认密码" v-model="post.surepsw">
       </div>
       <div class="isShow">
         <el-checkbox v-model="checked">我已阅读并同意 <span>《用户协议》</span></el-checkbox>
       </div>
-      <div class="btn">
+      <div class="btn" @click="sub">
         注册
       </div>
       <div class="register">
@@ -60,7 +60,54 @@
           label: 'English+99'
         }],
         value: '中国+86',
-        checked:true
+        checked:true,
+        post:{
+          gj:'zh',
+          tel:'',
+          psw:'',
+          surepsw:'',
+          code:''
+        }
+      }
+    },
+    methods:{
+      sub(){
+        if(!this.post.tel){
+          this.$message({
+            message: '手机号不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.code){
+          this.$message({
+            message: '验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.psw){
+          this.$message({
+            message: '密码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.surepsw){
+          this.$message({
+            message: '确认密码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(this.post.surepsw!=this.post.psw){
+          this.$message({
+            message: '两次密码不相同',
+            type: 'warning'
+          });
+          return false
+        }else{
+          this.$message({
+            message: '注册成功',
+            type: 'success'
+          });
+        }
       }
     }
   }

@@ -15,14 +15,14 @@
         </el-select>
       </div>
       <div class="bgDev">
-        <input type="text" placeholder="请输入手机号">
+        <input type="text" placeholder="请输入手机号" v-model="post.tel">
       </div>
       <div class="lastInput bgDev">
-        <input type="text" placeholder="验证码">
+        <input type="text" placeholder="验证码"  v-model="post.code">
         <img src="../../assets/images/home/yz.png">
       </div>
       <div class="lastInput bgDev">
-        <input type="text" placeholder="验证码">
+        <input type="text" placeholder="验证码" v-model="post.msgcode">
         <div>
           发送验证码
         </div>
@@ -38,9 +38,12 @@
         </el-select>
       </div>
       <div class="bgDev">
-        <input type="text" placeholder="证件编号">
+        <input type="text" placeholder="证件编号"  v-model="post.id">
       </div>
-      <div class="btn">
+      <div class="text">
+        如果用户未实名此项可不填
+      </div>
+      <div class="btn" @click="sub">
         下一步
       </div>
     </div>
@@ -66,8 +69,39 @@
           label: '护照'
         }],
         value: '中国+86',
-        checked:true,
-        idNum:'身份证'
+        idNum:'身份证',
+        post:{
+          gj:'zh',
+          tel:'',
+          code:'',
+          msgcode:'',
+          id:''
+        }
+      }
+    },
+    methods:{
+      sub(){
+        if(!this.post.tel){
+          this.$message({
+            message: '手机号不能为空',
+            type: 'warning'
+          });
+          return false
+        }else if(!this.post.code){
+          this.$message({
+            message: '验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else if(!this.post.msgcode){
+          this.$message({
+            message: '短信验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else{
+          this.$router.push('/reset')
+        }
       }
     }
   }
@@ -147,6 +181,12 @@
         justify-content: center;
         border-radius: 5px;
         margin-top: 30px;
+      }
+      .text{
+        font-size: 16px;
+        color: #ebebeb;
+        width: 400px;
+        padding-left: 30px;
       }
     }
   }

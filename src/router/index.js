@@ -4,9 +4,18 @@ import Index from '@/pages/Index'
 import SettingIndex from '@/pages/setting/set'    //  安全设置
 import SettingLog from '@/pages/setting/log'    //  安全记录
 import SettingCertify from '@/pages/setting/certify'    //  实名认证
+//个人信息验证
 import Login from '@/pages/login/Login'    //  登录
 import Register from '@/pages/login/Register'    //  注册
 import Forget from '@/pages/login/Forget'    //  忘记密码
+import Reset from '@/pages/login/Reset'    //  重置
+
+
+//新闻页面
+import News from '@/pages/news/News'    //  新闻
+import Newsdetail from '@/pages/news/Newsdetail'    //  新闻详细页
+
+
 import SetMobile from '@/pages/setting/mobile'    //  绑定邮箱
 import SetFundpassword from '@/pages/setting/fundpassword'    //  资金密码
 import SetUserinfo from '@/pages/setting/userinfo'    //  修改资料
@@ -31,6 +40,7 @@ export default new Router({
       name: 'Index',
       component: Index
     },
+    { path:"*", redirect:"/" },
     {path: '/setting', redirect: '/setting/index'},
     {
       type: 'setting',   // 表示是 安全设置相关的菜单
@@ -84,6 +94,11 @@ export default new Router({
       path: '/forget',
       name: 'Forget',
       component: Forget
+    },
+    {
+      path: '/reset',
+      name: 'Reset',
+      component: Reset
     },
    // 资产
     {path: '/property', redirect: '/property/assetview'},
@@ -149,6 +164,16 @@ export default new Router({
       path: '/property/terrace',
       name: '平台互转',
       component: Pterrace
+    },
+    {
+      path: '/news',
+      component: News,
+      name: 'News',
+    },
+    {
+      path: '/news/detail',
+      component: Newsdetail,
+      name: 'Newsdetail',
     }
   ]
 })

@@ -29,19 +29,19 @@
             </el-select>
           </div>
           <div class="bgDev">
-            <input type="text" placeholder="请输入手机号">
+            <input type="text" placeholder="请输入手机号" v-model="post.tel">
           </div>
           <div class="bgDev">
-            <input type="text" placeholder="请输入密码">
+            <input type="text" placeholder="请输入密码" v-model="post.psw">
           </div>
           <div class="lastInput bgDev">
-            <input type="text" placeholder="验证码">
+            <input type="text" placeholder="验证码" v-model="post.code">
             <img src="../assets/images/home/yz.png">
           </div>
           <div class="forget">
             <span @click="$router.push('/forget')">忘记密码</span>
           </div>
-          <div class="btn">
+          <div class="btn" @click="sub">
             登录
           </div>
         </div>
@@ -234,15 +234,73 @@
             name:'24h成交量',
             price:'$6383.0000'
           }
-        ]
+        ],
+        post:{
+          gj:'zh',
+          tel:'',
+          psw:'',
+          code:''
+        }
       }
     },
-    methods: {},
+    methods: {
+      sub(){
+        if(!this.post.tel){
+          this.$message({
+            message: '手机号不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.psw){
+          this.$message({
+            message: '密码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.code){
+          this.$message({
+            message: '验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else{
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          });
+        }
+      }
+    },
     mounted() {
     }
   }
 </script>
 <style lang="less" type="text/less" scoped>
+  @media screen and (max-width: 1200px) {
+    .homeBg{
+      .bgLeft{
+        width: 400px!important;
+      }
+      .bgRight{
+        width: 450px!important;
+
+      }
+    }
+    .homeMain{
+      .mainWrap{
+        width: 980px!important;
+        .buy{
+          width: 300px!important;
+        }
+      }
+      .marketPrice{
+        width: 980px!important;
+      }
+    }
+    .marketImg{
+      width: 980px!important;
+    }
+  }
   .homeTop{
     display: flex;
     color: #fff;
@@ -252,6 +310,7 @@
     height: 50px;
     align-items: center;
     justify-content: space-around;
+    min-width: 980px;
     span{
       &.percentage{
         color: #7aed5a;
