@@ -113,7 +113,7 @@
   }
   .skin-setting .p-content{
     background: transparent;
-
+    min-width: 1200px;
   }
   .p-content{
     height: 1377px;
@@ -191,7 +191,7 @@
 
   .hot-aside{
     width: 266px;
-    margin: 0 auto;
+    padding: 0 30px;
     margin-bottom: 110px;
   }
   .p-hot{
