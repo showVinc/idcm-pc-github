@@ -92,7 +92,6 @@
           case 0:
             this.$router.push('/')
             break;
-          case 2:
           case 1:
             this.$router.push('/idcm')
             break;

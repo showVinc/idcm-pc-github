@@ -115,7 +115,7 @@
   }
   .skin-setting .p-content{
     background: transparent;
-    min-width: 1200px;
+    min-width: 980px;
   }
   .p-content{
     max-height: 1630px;
@@ -123,7 +123,6 @@
   }
   .skin-setting .p-article {
     width: 30%;
-    height: 100%;
     height: 1910px;
     margin-left: 1%;
     background: #254161;
