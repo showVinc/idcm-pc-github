@@ -18,10 +18,10 @@
           <p>交易品种</p>
           <p><span>时间点</span></p>
         </div> -->
-        
+
          <!-- input -->
 
-        <form class="skin-form p-accounts">
+        <form class="skin-form p-accounts"  style="min-height: 0;">
 
           <div class="has-label">
             <span class="form-label">虚拟币存入钱包地址</span>

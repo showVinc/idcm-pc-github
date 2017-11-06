@@ -19,7 +19,7 @@
 
         <!-- input -->
 
-        <form class="skin-form p-accounts">
+        <form class="skin-form p-accounts" style="min-height: 0;">
 
           <div class="has-label">
             <span class="form-label">从</span>
@@ -277,7 +277,7 @@
       width: 36%;
     }
   }
-  
+
  .skin-setting .skin-form .form-sub-btn {
     padding: 0 0;
     padding: 30px 0 0 86px;

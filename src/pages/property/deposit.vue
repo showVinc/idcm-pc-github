@@ -19,10 +19,10 @@
           <p><span>时间点</span></p>
         </div> -->
 
-      
+
          <!-- input -->
 
-        <form class="skin-form p-accounts">
+        <form class="skin-form p-accounts" style="min-height: 0;">
 
           <div class="has-label">
             <span class="form-label">从</span>

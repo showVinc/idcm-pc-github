@@ -47,12 +47,15 @@
 
           <!-- 平台 -->
           <div class="bgdev">
-            <el-select v-model="value" placeholder="平台">
-              <el-option
-                v-for="item in options"
-                :value="item.value">
-              </el-option>
-            </el-select>
+            <el-form :inline="true" :model="formInline" class="demo-form-inline">
+
+              <el-form-item>
+                <el-select v-model="formInline.region" placeholder="活动区域">
+                  <el-option label="区域一" value="shanghai"></el-option>
+                  <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+              </el-form-item>
+            </el-form>
           </div>
 
           <div class="bgdev">
@@ -91,6 +94,10 @@
   export default {
     data() {
       return {
+        formInline: {
+          user: '',
+          region: ''
+        },
         options: [{
           value: '平台1',
         }, {
@@ -126,7 +133,7 @@
             type: 'warning'
           });
           return false
-        } else if(!this.post.values){
+        } else if(!this.formInline){
           this.$message({
             message: '平台选择不能为空',
             type: 'warning'
@@ -168,7 +175,10 @@
             type: 'success'
           });
         }
-      }
+      },
+     onSubmit() {
+       console.log('submit!');
+     }
     },
   }
 </script>
@@ -280,6 +290,7 @@
         .el-select{
           .el-input__inner{
             background: red;
+            color: #ebebeb;
           }
         }
       }
