@@ -93,6 +93,7 @@
 <style lang="less" scoped>
   .main {
     width: 60%;
+    min-height: 600px;
     .page {
       float: right;
     }
@@ -130,6 +131,19 @@
         color: #ebebeb;
         border-bottom: 1px dashed #516d8e;
       }
+    }
+  }
+
+  @media(max-width: 1500px) {
+    .main {
+      width: 80%;
+      min-height: 600px;
+    }
+  }
+  @media(max-width: 1200px) {
+    .main {
+      width: 100%;
+      min-height: 600px;
     }
   }
 </style>

@@ -132,10 +132,10 @@
                 icon: require('@/assets/images/user.jpg'),
                 label: '通过',
                 data: '每两个小时验证一次',
-                link: {
+               /* link: {
                   label: '修改',
                   path: ''
-                }
+                }*/
               }
             ]
           }

@@ -43,6 +43,7 @@ websocket socket.io;有金融或财务类应用系统建设经验者优先。</l
     color: #ebebeb;
     padding: 70px;
     font-size: 14px;
+    min-height: 656px;
     .item {
       margin-bottom: 30px;
     }

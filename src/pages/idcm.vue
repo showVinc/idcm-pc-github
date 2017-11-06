@@ -1,6 +1,6 @@
 <!--  交易所页面 -->
 <template>
-  <div>
+  <div class="bg">
     <head-top :num="1"></head-top>
     <div class="page-flex">
       <!--  现价 限价 区域 -->
@@ -14,12 +14,12 @@
           <!--  现价  -->
           <div v-if="present_price">
             <div class="btns">
-              <span class="item buy" role="button" :class="show_buy ? 'active' : ''" @click="show_buy = true">买</span>
-              <span class="item sell" role="button" :class="!show_buy ? 'active' : ''" @click="show_buy = false">卖</span>
+              <span class="item buy" role="button" :class="p_show_buy ? 'active' : ''" @click="p_show_buy = true">买</span>
+              <span class="item sell" role="button" :class="!p_show_buy ? 'active' : ''" @click="p_show_buy = false">卖</span>
             </div>
 
             <!--  买  -->
-            <form class="idcm-form" v-if="show_buy">
+            <form class="idcm-form" v-if="p_show_buy">
               <label class="block-label">总额</label>
               <div class="form-item">
                 <input type="text" placeholder="0.00" v-model="buy_usd">
@@ -35,7 +35,31 @@
             </form>
 
             <!--  卖  -->
-            <form class="idcm-form" v-if="!show_buy">
+            <form class="idcm-form" v-if="!p_show_buy">
+              <label class="block-label">总额</label>
+              <div class="form-item">
+                <input type="text" placeholder="0.00" v-model="buy_usd">
+                <span class="unit">USD</span>
+              </div>
+
+              <div class="ca-btc">
+                <span class="b-title">总额(BTC)≈</span>
+                <span class="b-val">0.00000000</span>
+              </div>
+
+              <button class="btn-sub btn-sell" type="button">提交</button>
+            </form>
+          </div>
+
+          <!--  限价  -->
+          <div v-if="!present_price">
+            <div class="btns">
+              <span class="item buy" role="button" :class="l_show_buy ? 'active' : ''" @click="l_show_buy = true">买</span>
+              <span class="item sell" role="button" :class="!l_show_buy ? 'active' : ''" @click="l_show_buy = false">卖</span>
+            </div>
+
+            <!--  买  -->
+            <form class="idcm-form" v-if="l_show_buy">
               <label class="block-label">数量</label>
               <div class="form-item">
                 <input type="text" placeholder="0.00" v-model="sell_btc1">
@@ -53,35 +77,11 @@
                 <span class="b-val">0.00000000</span>
               </div>
 
-              <button class="btn-sub btn-sell" type="button">提交</button>
-            </form>
-          </div>
-
-          <!--  限价  -->
-          <div v-if="!present_price">
-            <div class="btns">
-              <span class="item buy" role="button" :class="show_buy ? 'active' : ''" @click="show_buy = true">买</span>
-              <span class="item sell" role="button" :class="!show_buy ? 'active' : ''" @click="show_buy = false">卖</span>
-            </div>
-
-            <!--  买  -->
-            <form class="idcm-form" v-if="show_buy">
-              <label class="block-label">总额</label>
-              <div class="form-item">
-                <input type="text" placeholder="0.00" v-model="buy_usd">
-                <span class="unit">USD</span>
-              </div>
-
-              <div class="ca-btc">
-                <span class="b-title">总额(BTC)≈</span>
-                <span class="b-val">0.00000000</span>
-              </div>
-
               <button class="btn-sub btn-buy" type="button">提交</button>
             </form>
 
             <!--  卖  -->
-            <form class="idcm-form" v-if="!show_buy">
+            <form class="idcm-form" v-if="!l_show_buy">
               <label class="block-label">数量</label>
               <div class="form-item">
                 <input type="text" placeholder="0.00" v-model="sell_btc1">
@@ -128,6 +128,7 @@
           <table>
             <thead>
             <tr>
+              <th></th>
               <th>市场量</th>
               <th>价格（USD）</th>
             </tr>
@@ -135,8 +136,9 @@
 
             <tbody>
             <tr v-for="item,i in sell_list" :key="i">
-              <td>{{ item.market }}</td>
-              <td class="sell">{{ item.price }}</td>
+              <td width="60"><span class="bar sell" :style="`width: ${item.rate}%`"></span></td>
+              <td>{{ item.market | sell_market }}</td>
+              <td class="sell">{{ item.price | sell_price }}</td>
             </tr>
             </tbody>
           </table>
@@ -154,6 +156,7 @@
           <table>
             <tbody>
             <tr v-for="item,i in buy_list" :key="i">
+              <td width="60"><span class="bar buy" :style="`width: ${item.rate}%`"></span></td>
               <td>{{ item.market }}</td>
               <td class="buy">{{ item.price }}</td>
             </tr>
@@ -250,11 +253,6 @@
         </div>
 
       </div>
-
-
-
-
-
     </div>
   </div>
 </template>
@@ -268,42 +266,44 @@
         sell_btc1: '',
         sell_btc2: '',
         present_price: true, //  当前选中的现价 （限价：false)
-        show_buy: true,   //  当前选中的按钮是  买 （卖： false)
+        p_show_buy: true,   //  现价：当前选中的按钮是  买 （卖： false)
+        l_show_buy: true,   //  限价：当前选中的按钮是  买 （卖： false)
         chart_show: true,  //  当前选中的是行情图表 （当天成交记录： false )
         sell_list: [
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'}
+          {rate: '1', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '60', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'}
         ],
         buy_list: [
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'},
-          {market: '4.48000000', price: '6865.03'}
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '80', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
+          {rate: '10', market: '4.48000000', price: '6865.03'},
         ],
         log_list: [
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
           {market: '4.48000000', price: '6865.03', date: '10:43:14'},
           {market: '4.48000000', price: '6865.03', date: '10:43:14'},
           {market: '4.48000000', price: '6865.03', date: '10:43:14'},
@@ -332,7 +332,10 @@
 </script>
 
 <style lang="less">
-
+  .bg {
+    background: #15232c;
+    margin-bottom: -56px;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -342,9 +345,11 @@
     display: flex;
     font-size: 14px;
     background: #15232c;
+    min-height: calc(~"100vh - 100px");
     .calculate {
       width: 11%;
       background: #48525a;
+      min-height: calc(~"100vh - 100px");
     }
     .exchange {
       width: 17%;
@@ -432,6 +437,8 @@
       margin-bottom: 15px;
       input {
         flex: 1;
+        width:auto;
+        min-width: 0;
         color: #fff;
         background: transparent;
         border: none;
@@ -509,11 +516,22 @@
     padding-bottom: 6px;
     table {
       width: 100%;
+      border-collapse:collapse;
     }
     tbody {
       tr:nth-child(1) td {
         padding-top: 6px;
         border-top: 1px solid #2f3d45;
+      }
+      .bar {
+        display: inline-block;
+        height: 15px;
+        &.sell {
+          background: #8e4a36;
+        }
+        &.buy {
+          background: #51914d;
+        }
       }
     }
     tr {
@@ -553,7 +571,7 @@
   .exchange {
     .idcm-table {
       th, td {
-        padding-left: 18%;
+   //     padding-left: 18%;
       }
       th {
         text-align: left;

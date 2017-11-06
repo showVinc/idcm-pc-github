@@ -42,6 +42,7 @@
 <style lang="less" scoped>
   .p-content {
     padding: 60px;
+    min-height: 656px;
   }
   .p-aside {
     text-align: right;
