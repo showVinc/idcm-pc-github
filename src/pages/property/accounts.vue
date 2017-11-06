@@ -228,7 +228,7 @@
 
 /*tab*/
    .main {
-    width: 75%;
+    /*width: 75%;*/
     .page {
       float: right;
     }
