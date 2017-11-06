@@ -1,5 +1,10 @@
 <template>
+  <!--<head-top :num="2"></head-top>-->
+<div>
+  <head-top :num="2"></head-top>
+
   <div class="skin-setting bb">
+
     <h1 class="p-title">个人中心</h1>
 
     <div class="p-content">
@@ -99,6 +104,8 @@
       </div>
     </div>
   </div>
+  <public-foot></public-foot>
+</div>
 </template>
 
 <script>

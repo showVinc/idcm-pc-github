@@ -1,7 +1,7 @@
 <template>
   <div>
     <head-top :num="3"></head-top>
-   
+
     <div class="skin-setting">
       <h1 class="p-title">新闻</h1>
 
@@ -23,7 +23,7 @@
                 </p>
 
                 <p class='news-content'>许多行业已经转向区块链技术，并将其与机器学习和人工智能一起认定为转变全球经济的基础。而像高盛、微软以IBM等机构已经进入这一领域。学术界和政府如法炮制也只不
-过是时间的问题。为了更好地了解大学如何将区块链技术纳入其课程从而保持相关性，ETHNews采访了泰晤士高等教育2018顶级大学列表中榜上有名的新加坡国立大学的Dr. 
+过是时间的问题。为了更好地了解大学如何将区块链技术纳入其课程从而保持相关性，ETHNews采访了泰晤士高等教育2018顶级大学列表中榜上有名的新加坡国立大学的Dr.
 TAN Chuan Hoo。TAN对ETHNews表示：
                 </p>
                 <p class='news-content'>“区块链是一项在金融领域具有重要应用的新型颠覆性技术。我们信息系统专业的学生必须对最新技术具备坚实的了解，同时具备更新的技能组合从而在关键行业领域（如金
@@ -39,7 +39,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
               </dd>
             </dl>
           </div>
-            
+
 
         </div>
 
@@ -88,7 +88,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
 
       }
     }
-  
+
   }
 </script>
 <style lang="less" type="text/less" scoped>
@@ -163,7 +163,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
   }
   .news-list .news-title{
     font-size: 14px;
-    
+
   }
   .news-list .news-times{
     font-size: 10px;
