@@ -120,6 +120,16 @@
   }
 </script>
 <style lang="less" type="text/less" scoped>
+  @media screen and (max-width: 1200px) {
+    .htadTop{
+      ul{
+        li{
+          width: 80px!important;
+          min-width: 80px!important;
+        }
+      }
+    }
+  }
   .htadTop {
     height: 100px;
     width: 100%;
