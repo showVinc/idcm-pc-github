@@ -40,8 +40,7 @@
                 :on-success="uploadFrontSuccess">
                 <img v-if="front_url" :src="front_url" class="avatar">
                 <div v-else>
-                  <i class="el-icon-plus icon"></i>
-                  <div>点此上传</div>
+                  <img class="up-img-tip" :src="upimgurl" alt="">
                 </div>
               </el-upload>
             </div>
@@ -56,8 +55,7 @@
                 :on-success="uploadBackSuccess">
                 <img v-if="back_url" :src="back_url" class="avatar">
                 <div v-else>
-                  <i class="el-icon-plus icon"></i>
-                  <div>点此上传</div>
+                  <img class="up-img-tip" :src="upimgurl" alt="">
                 </div>
               </el-upload>
             </div>
@@ -85,6 +83,7 @@
     data () {
       return {
         uploadimgurl: '',           //  上传图片URL
+        upimgurl: require('@/assets/images/setting/upimgtip.jpg'),        //  上传图片背景提示图
         front_url: '',              //  正面照图片预览路径
         back_url: '',               //  反面照图片预览路径
         card_type: [

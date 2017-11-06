@@ -58,92 +58,17 @@
       return {
         is_main: true, //  当前是否是主页面(安全设置主页面）
         userinfo: {  //  用户信息
-          img: require('@/assets/images/user.jpg'),
+          img: require('@/assets/images/setting/user.png'),
           username: 'Elvis',
           uid: 'UID:(HY553202)'
         },
-        node: [
-          {
-            label: '安全策略',
-            list: [
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '电话',
-                data: '1821****654'
-              },
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '资金密码',
-                data: '1821****654'
-              }
-            ]
-          },
-          {
-            label: '安全信息',
-            list: [
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '邮箱（未绑定）',
-                data: '暂未绑定邮箱',
-                active: true,
-                link: {
-                  label: '绑定',
-                  path: '/setting/index/email'
-                }
-              },
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '手机（已绑定）',
-                data: '1801****325',
-                link: {
-                  label: '修改',
-                  path: '/setting/index/mobile'
-                }
-              },
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '登录密码（已设置）',
-                data: '登录时使用',
-                link: {
-                  label: '修改',
-                  path: '/setting/index/loginpassword'
-                }
-              },
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '资金密码（已绑定）',
-                data: '账户资金变动时，需先验证该资金密码。（默认和登录密码一样）',
-                link: {
-                  label: '修改',
-                  path: '/setting/index/fundpassword'
-                }
-              }
-            ]
-          },
-          {
-            label: '安全策略',
-            list: [
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '确认交易',
-                data: '账户资金变动时，需先验证该资金密码。（默认和登录密码一样）'
-              },
-              {
-                icon: require('@/assets/images/user.jpg'),
-                label: '通过',
-                data: '每两个小时验证一次',
-               /* link: {
-                  label: '修改',
-                  path: ''
-                }*/
-              }
-            ]
-          }
-        ]
+        node: []
       }
     },
     mounted () {
       this.setMain()
+
+      this.setNode()
     },
     watch: {
       '$route' () {
@@ -156,6 +81,95 @@
        * */
       setMain () {
         this.is_main = this.$router.currentRoute.path === '/setting/index'
+      },
+      setNode () {
+
+        let tel = '1821****654'   //  绑定的手机号
+        let fundpass = '1821****654'  //  资金密码
+        let email = ''           //  邮箱
+        let loginpass = true  //  是否设置登录密码
+
+        this.node =  [
+          {
+            label: '安全策略',
+            list: [
+              {
+                icon: tel ? require('@/assets/images/setting/tel.png') : require('@/assets/images/setting/tel-c.png'),
+                label: '电话',
+                data: tel
+              },
+              {
+                icon: fundpass ? require('@/assets/images/setting/fund-pass.png') : require('@/assets/images/setting/fund-pass-c.png'),
+                label: '资金密码',
+                data: fundpass
+              }
+            ]
+          },
+          {
+            label: '安全信息',
+            list: [
+              {
+                icon: email ? require('@/assets/images/setting/email.png') : require('@/assets/images/setting/email-c.png'),
+                label: `邮箱（${email ? '已绑定' : '未绑定'}）`,
+                data: `${email ? email : '暂未绑定邮箱'}`,
+                active: !email,
+                link: {
+                  label: email ? '修改' : '绑定',
+                  path: '/setting/index/email'
+                }
+              },
+              {
+                icon: tel ? require('@/assets/images/setting/tel.png') : require('@/assets/images/setting/tel-c.png'),
+                label: `手机（${tel ? '已绑定' : '未绑定'}）`,
+                data: `${tel ? tel : '暂未绑定手机'}`,
+                active: !tel,
+                link: {
+                  label: tel ? '修改' : '绑定',
+                  path: '/setting/index/mobile'
+                }
+              },
+              {
+                icon: loginpass ? require('@/assets/images/setting/login.png') : require('@/assets/images/setting/login-c.png'),
+                label: `登录密码（${loginpass ? '已设置' : '未设置'}）`,
+                data: '登录时使用',
+                active: !loginpass,
+                link: {
+                  label: loginpass ? '修改' : '设置',
+                  path: '/setting/index/loginpassword'
+                }
+              },
+              {
+                icon: fundpass ? require('@/assets/images/setting/fund-pass.png') : require('@/assets/images/setting/fund-pass-c.png'),
+                label: `资金密码（${fundpass ? '已绑定' : '未绑定'}）`,
+                data: '账户资金变动时，需先验证该资金密码。（默认和登录密码一样）',
+                active: !fundpass,
+                link: {
+                  label: fundpass ? '修改' : '绑定',
+                  path: '/setting/index/fundpassword'
+                }
+              }
+            ]
+          },
+          {
+            label: '安全策略',
+            list: [
+              {
+                icon: require('@/assets/images/setting/exchange.png'),
+                label: '确认交易',
+                data: '账户资金变动时，需先验证该资金密码。（默认和登录密码一样）'
+              },
+              {
+                icon: require('@/assets/images/setting/pass.png'),
+                label: '通过',
+                data: '每两个小时验证一次',
+                /* link: {
+                   label: '修改',
+                   path: ''
+                 }*/
+              }
+            ]
+          }
+        ]
       }
     }
   }

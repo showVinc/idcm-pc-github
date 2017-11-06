@@ -34,7 +34,7 @@
   export default {
     data () {
       return {
-          avatar: require('@/assets/images/user.jpg'),
+          avatar: require('@/assets/images/about.png'),
       }
     }
   }

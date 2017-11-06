@@ -137,8 +137,45 @@
             <tbody>
             <tr v-for="item,i in sell_list" :key="i">
               <td width="60"><span class="bar sell" :style="`width: ${item.rate}%`"></span></td>
-              <td>{{ item.market | sell_market }}</td>
-              <td class="sell">{{ item.price | sell_price }}</td>
+              <td>{{ item.market }}</td>
+              <td class="sell">{{ item.price }}</td>
+            </tr>
+
+            <!-- 样式示例 -->
+            <tr>
+              <td width="60"><span class="bar sell" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="gray">4</span>
+                <span class="white">.3654</span>
+                <span class="gray">0000</span>
+              </td>
+              <td class="sell">
+                <span class="sell">6850.</span>
+                <span class="sell-l">03</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="60"><span class="bar sell" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="sell">4.3645</span>
+                <span class="gray">0000</span>
+              </td>
+              <td class="sell">
+                <span class="sell">6850.</span>
+                <span class="sell-l">03</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="60"><span class="bar sell" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="gray">4.36450000</span>
+              </td>
+              <td class="sell">
+                <span class="sell">6850.</span>
+                <span class="sell-l">03</span>
+              </td>
             </tr>
             </tbody>
           </table>
@@ -160,6 +197,45 @@
               <td>{{ item.market }}</td>
               <td class="buy">{{ item.price }}</td>
             </tr>
+
+            <!-- 样式示例 -->
+            <tr>
+              <td width="60"><span class="bar buy" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="gray">4</span>
+                <span class="white">.3654</span>
+                <span class="gray">0000</span>
+              </td>
+              <td class="buy">
+                <span class="buy">6850.</span>
+                <span class="buy-l">03</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="60"><span class="bar buy" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="buy">4.3645</span>
+                <span class="gray">0000</span>
+              </td>
+              <td class="buy">
+                <span class="buy">6850.</span>
+                <span class="buy-l">03</span>
+              </td>
+            </tr>
+
+            <tr>
+              <td width="60"><span class="bar buy" :style="`width: 1%`"></span></td>
+              <td>
+                <span class="gray">4.36450000</span>
+              </td>
+              <td class="buy">
+                <span class="buy">6850.</span>
+                <span class="buy-l">03</span>
+              </td>
+            </tr>
+
+
             </tbody>
           </table>
         </div>
@@ -168,6 +244,13 @@
       <!--  图表 -->
       <div class="chart">
         <h4 class="bg-title">行情图表</h4>
+        <ul class="total-tip">
+          <li><strong>$3,950.5000</strong></li>
+          <li class="gray">24h最低价：$3,950.5000</li>
+          <li class="gray">24h最高价：$3,950.5000</li>
+          <li><strong>涨幅： </strong><span class="green">+0.79%</span></li>
+          <li class="gray">24h成交量：$3,950.5000</li>
+        </ul>
         <img :src="chart_url" alt="" style="width:  100%; height: 360px;">
 
         <div class="chart-tab">
@@ -261,7 +344,7 @@
   export default {
     data () {
       return {
-        chart_url: require('@/assets/images/user.jpg'),
+        chart_url: require('@/assets/images/icdm.png'),
         buy_usd: '',
         sell_btc1: '',
         sell_btc2: '',
@@ -279,11 +362,6 @@
           {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '60', market: '4.48000000', price: '6865.03'},
           {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'}
         ],
         buy_list: [
           {rate: '10', market: '4.48000000', price: '6865.03'},
@@ -292,13 +370,6 @@
           {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '80', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
-          {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '10', market: '4.48000000', price: '6865.03'},
           {rate: '10', market: '4.48000000', price: '6865.03'},
@@ -353,7 +424,8 @@
     }
     .exchange {
       width: 17%;
-      padding: 0 3px;
+      background: #1e2b34;
+      margin: 0 3px;
     }
     .log {
       width: 14%;
@@ -535,6 +607,9 @@
       }
     }
     tr {
+      &:hover {
+        background: #15232d;
+      }
       th {
         line-height: 30px;
         color: #868e93;
@@ -543,10 +618,14 @@
         line-height: 12px + 2px;
         color: #fff;
 
-        &.gray {
+        .gray, .white, .sell, .sell-l, .buy, .buy-l {
+          float: left;
+        }
+
+        &.gray, .gray {
           color: #868e93;
         }
-        &.white {
+        &.white, .white {
           color: #fff;
         }
 
@@ -569,6 +648,7 @@
   }
 
   .exchange {
+  //  min-height: calc(~"100vh - 100px");
     .idcm-table {
       th, td {
    //     padding-left: 18%;
@@ -576,6 +656,12 @@
       th {
         text-align: left;
       }
+    }
+
+
+
+    .bg-title, .b-title, .idcm-table, .rate {
+  //    background: #1e2b34;
     }
   }
   .log {
@@ -626,6 +712,26 @@
         background: #1e2b34;
         color: #fff;
       }
+    }
+  }
+
+  .total-tip {
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 12px;
+    display: table;
+    width: 100%;
+    li {
+      display: table-cell;
+      padding-right: 40px;
+      padding-left: 7px;
+    }
+    .gray {
+      color: #a9a9a9;
+    }
+    .green {
+      color: #6dd581;
     }
   }
 
