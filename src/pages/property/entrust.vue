@@ -202,7 +202,7 @@
 /*tab*/
    .main {
      min-width: 686px;
-    /*width: 100%;*/
+    width: 60%;
     .page {
       float: right;
     }
