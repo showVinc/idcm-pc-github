@@ -8,7 +8,7 @@
       {{ item.label }}
 
       <!-- 图标待替换 -->
-      <span class="icon"> > </span>
+      <img :src="icon_url" class="icon" alt="">
 
     </router-link>
   </div>
@@ -21,6 +21,7 @@
     },
     data () {
       return {
+        icon_url: require('@/assets/images/setting/icon-right.png'),
         data: []
       }
     },
@@ -80,6 +81,7 @@
 
     .icon {
       float: right;
+      margin-top: 22px;
     }
   }
 </style>
