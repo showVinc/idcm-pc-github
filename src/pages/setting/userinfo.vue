@@ -1,87 +1,93 @@
 <template>
-  <form class="skin-form">
-    <h1 class="s-title">修改资料</h1>
+  <div>
+    <head-top :num="0"></head-top>
+    <form class="skin-form">
+      <h1 class="s-title">修改资料</h1>
 
-    <div class="has-label">
-      <span class="form-label">头像</span>
+      <div class="has-label">
+        <span class="form-label">头像</span>
 
-      <!--  el-upload:  elementUI 的组件 -->
-      <div class="upload">
-        <img v-if="imageUrl" :src="imageUrl" class="avatar">
+        <!--  el-upload:  elementUI 的组件 -->
+        <div class="upload">
+          <img v-if="imageUrl" :src="imageUrl" class="avatar">
 
-        <el-upload
-          class="upload-box"
-          :action="uploadimgurl"
-          :show-file-list="false"
-          :on-error="uploadError"
-          :on-success="uploadSuccess" >
-          <span class="btn-upload">上传头像</span>
-        </el-upload>
+          <el-upload
+            class="upload-box"
+            :action="uploadimgurl"
+            :show-file-list="false"
+            :on-error="uploadError"
+            :on-success="uploadSuccess" >
+            <span class="btn-upload">上传头像</span>
+          </el-upload>
+        </div>
       </div>
-    </div>
 
 
-    <div class="has-label">
-      <span class="form-label">性别</span>
-      <el-radio-group v-model="form.gender" class="radios">
-        <el-radio :label="1">男</el-radio>
-        <el-radio :label="2">女</el-radio>
-        <el-radio :label="3">保密</el-radio>
-      </el-radio-group>
+      <div class="has-label">
+        <span class="form-label">性别</span>
+        <el-radio-group v-model="form.gender" class="radios">
+          <el-radio :label="1">男</el-radio>
+          <el-radio :label="2">女</el-radio>
+          <el-radio :label="3">保密</el-radio>
+        </el-radio-group>
 
-    </div>
-
-    <div class="has-label">
-      <span class="form-label">真实姓名</span>
-      <div class="form-item">
-        <input type="text" placeholder="请填写真实姓名" v-model="form.username">
       </div>
-    </div>
 
-    <div class="has-label">
-      <span class="form-label">城市</span>
-      <div class="form-item">
-        <el-select v-model="form.city">
-          <el-option v-for="item,i in areas" :key="i" :label="item.name" :value="item.id"></el-option>
-        </el-select>
+      <div class="has-label">
+        <span class="form-label">真实姓名</span>
+        <div class="form-item">
+          <input type="text" placeholder="请填写真实姓名" v-model="form.username">
+        </div>
       </div>
-    </div>
 
-    <div class="has-label">
-      <span class="form-label">邮政编码</span>
-      <div class="form-item">
-        <input type="text" v-model="form.postalcode">
+      <div class="has-label">
+        <span class="form-label">城市</span>
+        <div class="form-item">
+          <el-select v-model="form.city">
+            <el-option v-for="item,i in areas" :key="i" :label="item.name" :value="item.id"></el-option>
+          </el-select>
+        </div>
       </div>
-    </div>
 
-    <div class="has-label">
-      <span class="form-label">电子邮箱</span>
-      <div class="form-item">
-        <input type="text" v-model="form.email">
+      <div class="has-label">
+        <span class="form-label">邮政编码</span>
+        <div class="form-item">
+          <input type="text" v-model="form.postalcode">
+        </div>
       </div>
-    </div>
 
-    <div class="has-label">
-      <span class="form-label">电话</span>
-      <div class="form-item">
-        <input type="text" v-model="form.tel">
+      <div class="has-label">
+        <span class="form-label">电子邮箱</span>
+        <div class="form-item">
+          <input type="text" v-model="form.email">
+        </div>
       </div>
-    </div>
 
-    <div class="has-label">
-      <span class="form-label">地址</span>
-      <div class="form-item">
-        <el-select v-model="form.address">
-          <el-option v-for="item,i in address_list" :key="i" :label="item.name" :value="item.id"></el-option>
-        </el-select>
+      <div class="has-label">
+        <span class="form-label">电话</span>
+        <div class="form-item">
+          <input type="text" v-model="form.tel">
+        </div>
       </div>
-    </div>
 
-    <div class="form-sub-btn">
-      <button class="btn btn-sub" @click="subForm()" type="button">提交</button>
-    </div>
+      <div class="has-label">
+        <span class="form-label">地址</span>
+        <div class="form-item">
+          <el-select v-model="form.address">
+            <el-option v-for="item,i in address_list" :key="i" :label="item.name" :value="item.id"></el-option>
+          </el-select>
+        </div>
+      </div>
 
-  </form>
+      <div class="form-sub-btn">
+        <button class="btn btn-sub form-has-label" @click="subForm()" type="button">提交</button>
+      </div>
+
+    </form>
+    <public-foot></public-foot>
+  </div>
+
+
 </template>
 
 <script>
@@ -188,7 +194,7 @@
   }
 
 
-  .btn-sub {
+  .btn-sub.form-has-label {
     margin-left: 64px;
   }
 </style>

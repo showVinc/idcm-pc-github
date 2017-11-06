@@ -1,14 +1,28 @@
-<!--  修改资金密码  -->
+<!--  找回资金密码页面  -->
 
 <template>
   <div>
     <head-top :num="0"></head-top>
     <form class="skin-form">
-      <h1 class="s-title">修改资金密码</h1>
-      <div class="form-tip-1">{{ tel }}修改资金密码</div>
+      <h1 class="s-title">找回资金密码</h1>
+      <div class="form-tip-1">您正在为账户{{ uid }}重置资金密码</div>
 
       <div class="form-item">
-        <input type="password" placeholder="资金密码" v-model="form.oldpassword">
+        <input type="text" placeholder="手机号码" v-model="form.tel">
+      </div>
+
+      <div class="form-item">
+        <input type="password" placeholder="确认资金密码" v-model="form.oldpassword">
+      </div>
+
+      <div class="form-item form-img-code">
+        <input type="text" placeholder="验证码" v-model="form.imgcode">
+        <img :src="codeimg" alt="">
+      </div>
+
+      <div class="form-item form-tel-code">
+        <input type="text" placeholder="验证码" v-model="form.telcode">
+        <button class="btn btn-code">发送验证码</button>
       </div>
 
       <div class="form-item">
@@ -32,9 +46,13 @@
   export default {
     data () {
       return {
-        tel: '+8618654685475',
+        uid: 'UID:(HY553202)',
+        codeimg: require('@/assets/images/code.jpg'),  //验证码图片
         form: {
+          tel: '',                             //  手机号
           oldpassword: '',                     //  旧资金密码
+          imgcode: '',                         //  图片验证码
+          telcode: '',                         //  短信验证码
           newpassword: '',                     //  新资金密码
           confirmpassword: ''                  //  确认新资金密码
         }
@@ -45,8 +63,16 @@
         let data = this.form
 
         let msg = ''
-        if(!data.oldpassword) {
+        if(!data.tel) {
+          msg = '请输入手机号'
+        }else if(!data.oldpassword) {
           msg = '请输入资金密码'
+        }else if(!data.imgcode) {
+          msg = '请输入图形验证码'
+        }else if(data.imgcode !== '2907') {
+          msg = '图形验证码输入有误'
+        }else if(!data.telcode) {
+          msg = '请输入短信验证码'
         }else if(!data.newpassword) {
           msg = '请输入新资金密码'
         }else if(!data.confirmpassword) {

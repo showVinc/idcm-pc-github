@@ -52,9 +52,16 @@
       navClick(index){
         switch (index){
           case 1:
+            this.$router.push('/idcm')
             break;
           case 3:
             this.$router.push('/news')
+            break;
+          case 4:
+            this.$router.push('/about')
+            break;
+          case 5:
+            this.$router.push('/contact')
             break;
           case 7:
             this.$router.push('/login')

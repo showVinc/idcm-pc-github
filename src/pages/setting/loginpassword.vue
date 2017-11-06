@@ -1,22 +1,20 @@
-<!--  修改资金密码  -->
-
 <template>
   <div>
     <head-top :num="0"></head-top>
     <form class="skin-form">
-      <h1 class="s-title">修改资金密码</h1>
-      <div class="form-tip-1">{{ tel }}修改资金密码</div>
+      <h1 class="s-title">重置登录密码</h1>
+      <div class="form-tip-1">您正在为账户{{ uid }}重置登录密码</div>
 
       <div class="form-item">
-        <input type="password" placeholder="资金密码" v-model="form.oldpassword">
+        <input type="password" placeholder="原登录密码" v-model="form.oldpassword">
       </div>
 
       <div class="form-item">
-        <input type="password" placeholder="新资金密码" v-model="form.newpassword">
+        <input type="password" placeholder="新登录密码" v-model="form.newpassword">
       </div>
 
       <div class="form-item">
-        <input type="password" placeholder="确认资金密码" v-model="form.confirmpassword">
+        <input type="password" placeholder="确认登录密码" v-model="form.confirmpassword">
       </div>
 
       <div class="form-sub-btn">
@@ -26,17 +24,19 @@
     </form>
     <public-foot></public-foot>
   </div>
+
+
 </template>
 
 <script>
   export default {
     data () {
       return {
-        tel: '+8618654685475',
+        uid: 'UID:(HY553202)',
         form: {
-          oldpassword: '',                     //  旧资金密码
-          newpassword: '',                     //  新资金密码
-          confirmpassword: ''                  //  确认新资金密码
+          oldpassword: '',                     //  旧登录密码
+          newpassword: '',                     //  新登录密码
+          confirmpassword: ''                  //  确认新登录密码
         }
       }
     },
@@ -46,11 +46,11 @@
 
         let msg = ''
         if(!data.oldpassword) {
-          msg = '请输入资金密码'
+          msg = '请输入登录密码'
         }else if(!data.newpassword) {
-          msg = '请输入新资金密码'
+          msg = '请输入新登录密码'
         }else if(!data.confirmpassword) {
-          msg = '请输入确认新资金密码'
+          msg = '请输入确认新登录密码'
         }else if(data.newpassword !== data.confirmpassword) {
           msg = '两次密码输入不一致'
         }

@@ -1,49 +1,55 @@
 <template>
-  <div class="skin-setting">
-    <h1 class="p-title">个人中心</h1>
+  <div>
+    <head-top :num="0"></head-top>
+    <div class="skin-setting">
+      <h1 class="p-title">个人中心</h1>
 
-    <div class="p-content">
-      <!--  左侧菜单  -->
-      <div class="p-aside">
-        <idcm-left-menu :type="'setting'"></idcm-left-menu>
-      </div>
-
-      <!--  右侧内容  -->
-      <div class="p-article" v-if="is_main">
-        <div class="userinfo">
-          <img :src="userinfo.img" alt="">
-          <div class="info">
-            <h3 class="title">{{ userinfo.username }}</h3>
-            <p>{{ userinfo.uid }}</p>
-          </div>
-
-          <router-link to="/setting/index/userinfo" class="link">资料修改</router-link>
+      <div class="p-content">
+        <!--  左侧菜单  -->
+        <div class="p-aside">
+          <idcm-left-menu :type="'setting'"></idcm-left-menu>
         </div>
 
-        <div class="node" v-for="item,i in node" :key="i">
-          <h5 class="n-title">{{ item.label }}</h5>
-          <div class="item" v-for="el,k in item.list" :key="k">
-            <div class="icon">
-              <img :src="el.icon" alt="">
-            </div>
+        <!--  右侧内容  -->
+        <div class="p-article" v-if="is_main">
+          <div class="userinfo">
+            <img :src="userinfo.img" alt="">
             <div class="info">
-              <h6 class="i-title" :class="el.active ? 'active' : ''">{{ el.label }}</h6>
-              <p>{{ el.data }}</p>
+              <h3 class="title">{{ userinfo.username }}</h3>
+              <p>{{ userinfo.uid }}</p>
             </div>
 
-            <router-link class="link" v-if="el.link" :to="el.link.path">
-              {{ el.link.label }}
+            <router-link to="/setting/index/userinfo" class="link">资料修改</router-link>
+          </div>
+
+          <div class="node" v-for="item,i in node" :key="i">
+            <h5 class="n-title">{{ item.label }}</h5>
+            <div class="item" v-for="el,k in item.list" :key="k">
+              <div class="icon">
+                <img :src="el.icon" alt="">
+              </div>
+              <div class="info">
+                <h6 class="i-title" :class="el.active ? 'active' : ''">{{ el.label }}</h6>
+                <p>{{ el.data }}</p>
+              </div>
+
+              <router-link class="link" v-if="el.link" :to="el.link.path">
+                {{ el.link.label }}
             </router-link>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!--  子页面  -->
-      <div class="p-article" v-else>
-        <router-view></router-view>
+        <!--  子页面  -->
+        <div class="p-article" v-else>
+          <router-view></router-view>
+        </div>
       </div>
     </div>
+    <public-foot></public-foot>
   </div>
+
+
 </template>
 
 <script>
@@ -82,7 +88,7 @@
                 active: true,
                 link: {
                   label: '绑定',
-                  path: ''
+                  path: '/setting/index/email'
                 }
               },
               {
@@ -100,7 +106,7 @@
                 data: '登录时使用',
                 link: {
                   label: '修改',
-                  path: ''
+                  path: '/setting/index/loginpassword'
                 }
               },
               {
