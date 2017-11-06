@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <head-top :num="2"></head-top>
+
   <div class="skin-setting">
     <h1 class="p-title">个人中心</h1>
 
@@ -52,6 +55,8 @@
         </div>
       </div>
     </div>
+  </div>
+    <public-foot></public-foot>
   </div>
 </template>
 
