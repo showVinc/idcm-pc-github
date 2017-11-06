@@ -32,7 +32,7 @@
                 <p><strong>30000.00</strong></p>
               </div>
             </div>
-            <button>提现</button>
+            <button @click="tixian">提现</button>
           </div>
           <div class="card">
             <div class="on"><strong>$(BTC)</strong></div>
@@ -46,12 +46,12 @@
                 <p><strong>30000.00</strong></p>
               </div>
             </div>
-            <button>提现</button>
+            <button @click="tixian">提现</button>
           </div>
         </div>
 
         <div class="button">
-          <button>充值</button>
+          <button @click="chong">充值</button>
         </div>
       </div>
     </div>
@@ -62,7 +62,14 @@
 
 <script>
   export default {
-
+    methods:{
+      tixian(){
+        this.$router.push('/property/deposit');
+      },
+      chong(){
+        this.$router.push('/property/withdraw');
+      }
+    }
   }
 </script>
 <style lang="less" scoped type="text/less">

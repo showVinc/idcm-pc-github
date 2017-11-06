@@ -81,7 +81,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
       }
     },
     mounted () {
-      
+
     },
     methods: {
       sub(){

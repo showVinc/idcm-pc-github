@@ -175,7 +175,7 @@
           return false
         }else{
           this.$message({
-            message: '登录成功',
+            message: '提交成功',
             type: 'success'
           });
         }
