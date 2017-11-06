@@ -1,46 +1,52 @@
 <template>
-  <div class="skin-setting">
-    <h1 class="p-title">个人中心</h1>
+  <div>
+    <head-top :num="0"></head-top>
+    <div class="skin-setting">
+      <h1 class="p-title">个人中心</h1>
 
-    <div class="p-content">
-      <!--  左侧菜单  -->
-      <div class="p-aside">
-        <idcm-left-menu :type="'setting'"></idcm-left-menu>
-      </div>
+      <div class="p-content">
+        <!--  左侧菜单  -->
+        <div class="p-aside">
+          <idcm-left-menu :type="'setting'"></idcm-left-menu>
+        </div>
 
-      <!--  右侧内容  -->
-      <div class="p-article">
-        <div class="main">
-          <div class="table-border">
-            <table class="table">
-              <thead>
-              <tr>
-                <th>登录信息</th>
-                <th>登录IP</th>
-                <th>参考地点</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr v-for="item,i in list">
-                <td>{{ item.date }}</td>
-                <td>{{ item.ip }}</td>
-                <td>{{ item.address }}</td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
+        <!--  右侧内容  -->
+        <div class="p-article">
+          <div class="main">
+            <div class="table-border">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th>登录信息</th>
+                  <th>登录IP</th>
+                  <th>参考地点</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="item,i in list">
+                  <td>{{ item.date }}</td>
+                  <td>{{ item.ip }}</td>
+                  <td>{{ item.address }}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
 
 
-          <!-- 页码  -->
-          <div class="page">
-            <span class="item" @click="handlerPage(1)">首页</span>
-            <el-pagination layout="prev,pager,next" :page-count="pagecount" @current-change="handlerPage"></el-pagination>
-            <span class="item" @click="handlerPage(pagecount)">尾页</span>
+            <!-- 页码  -->
+            <div class="page">
+              <span class="item" @click="handlerPage(1)">首页</span>
+              <el-pagination layout="prev,pager,next" :page-count="pagecount" @current-change="handlerPage"></el-pagination>
+              <span class="item" @click="handlerPage(pagecount)">尾页</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <public-foot></public-foot>
   </div>
+
+
 </template>
 
 <script>
@@ -122,6 +128,7 @@
       }
       td {
         color: #ebebeb;
+        border-bottom: 1px dashed #516d8e;
       }
     }
   }

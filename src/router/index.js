@@ -16,9 +16,15 @@ import News from '@/pages/news/News'    //  新闻
 import Newsdetail from '@/pages/news/Newsdetail'    //  新闻详细页
 
 
-import SetMobile from '@/pages/setting/mobile'    //  绑定邮箱
+import SetMobile from '@/pages/setting/mobile'    //  绑定手机号
 import SetFundpassword from '@/pages/setting/fundpassword'    //  资金密码
 import SetUserinfo from '@/pages/setting/userinfo'    //  修改资料
+import SetEmail from '@/pages/setting/email'    //  邮箱绑定
+import SetLoginPassword from '@/pages/setting/loginpassword'    //  重置登录密码
+import SetFindfundpass from '@/pages/setting/findfundpass'    //  找回资金密码
+import About from '@/pages/about'    //  关于我们
+import Contact from '@/pages/contact'    //  加入我们
+import IDCM from '@/pages/idcm'    //  交易所
 
 //资产
 import Passetview from '@/pages/property/assetview.vue'    //  资产总览
@@ -51,18 +57,33 @@ export default new Router({
       children: [
         {
           path: '/setting/index/mobile',
-          name: '邮箱绑定',
+          name: '绑定手机',
           component: SetMobile,
         },
         {
           path: '/setting/index/fundpassword',
-          name: '资金密码',
+          name: '修改资金密码',
           component: SetFundpassword
         },
         {
           path: '/setting/index/userinfo',
           name: '修改资料',
           component: SetUserinfo
+        },
+        {
+          path: '/setting/index/email',
+          name: '绑定邮箱',
+          component: SetEmail
+        },
+        {
+          path: '/setting/index/loginpassword',
+          name: '登录密码',
+          component: SetLoginPassword
+        },
+        {
+          path: '/setting/index/findfundpass',
+          name: '找回资金密码',
+          component: SetFindfundpass
         }
       ]
     },
@@ -174,6 +195,21 @@ export default new Router({
       path: '/news/detail',
       component: Newsdetail,
       name: 'Newsdetail',
+    },
+    {
+      path: '/about',
+      name: '关于我们',
+      component: About
+    },
+    {
+      path: '/contact',
+      name: '加入我们',
+      component: Contact
+    },
+    {
+      path: '/idcm',
+      name: '交易所',
+      component: IDCM
     }
   ]
 })
