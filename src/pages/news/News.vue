@@ -119,12 +119,12 @@
   }
   .p-content{
     max-height: 1630px;
-    max-height: 1630px;
     overflow: hidden;
   }
   .skin-setting .p-article {
     width: 30%;
     height: 100%;
+    height: 1910px;
     margin-left: 1%;
     background: #254161;
     padding-left: 0;
@@ -132,8 +132,8 @@
   }
   .skin-setting .p-aside {
     width: 69%;
-    height: 100%;
     background: #254161;
+    height: 1910px;
   }
   .news-list{
     height:650px;
