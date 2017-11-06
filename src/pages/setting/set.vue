@@ -266,6 +266,12 @@
     }
   }
 
+  @media (max-width: 1200px) {
+    .node {
+      width: 80%;
+    }
+  }
+
 
 </style>
 

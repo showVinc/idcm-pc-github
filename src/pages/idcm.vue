@@ -328,7 +328,10 @@
             <tbody>
             <tr v-for="item,i in log_list" :key="i">
               <td class="white">{{ item.market }}</td>
-              <td class="sell">{{ item.price }}</td>
+              <td>
+                <span :class="item.sell ? 'sell' : 'buy'">{{ item.price }}</span>
+                <img :src="require(`@/assets/images/idcm/${item.sell ? 'icon-sell' : 'icon-buy'}.png`)" alt="">
+              </td>
               <td class="gray">{{ item.date }}</td>
             </tr>
             </tbody>
@@ -344,7 +347,7 @@
   export default {
     data () {
       return {
-        chart_url: require('@/assets/images/icdm.png'),
+        chart_url: require('@/assets/images/idcm/icdm.png'),
         buy_usd: '',
         sell_btc1: '',
         sell_btc2: '',
@@ -375,23 +378,23 @@
           {rate: '10', market: '4.48000000', price: '6865.03'},
         ],
         log_list: [
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'},
-          {market: '4.48000000', price: '6865.03', date: '10:43:14'}
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: true, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'},
+          {market: '4.48000000', sell: false, price: '6865.03', date: '10:43:14'}
         ],
         chart_list: [
           {lid: '2014090954654646464', date: '2017.10.01 10:31', code: '888888.00', price: '888888.00'},
@@ -413,6 +416,7 @@
   }
 
   .page-flex {
+    min-width: 1000px;
     display: flex;
     font-size: 14px;
     background: #15232c;
@@ -756,6 +760,29 @@
     }
   }
 
+
+
+
+  @media (max-width: 1480px) {
+    .page-flex .calculate {
+      width: 15%;
+    }
+    .log {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .page-flex .exchange {
+      width: 24%;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .page-flex .calculate {
+      width: 20%;
+    }
+  }
 </style>
 
 

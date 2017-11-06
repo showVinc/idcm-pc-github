@@ -95,7 +95,7 @@
     data () {
       return {
         tel: '+8618654685475',
-        imageUrl: require('@/assets/images/user.jpg'),      //  上传图片时，前端预览图片的路径
+        imageUrl: require('@/assets/images/setting/user.png'),      //  上传图片时，前端预览图片的路径
         uploadimgurl: '',  //  上传图片地址
         areas: [
           {id: 1, name: '北京'},
