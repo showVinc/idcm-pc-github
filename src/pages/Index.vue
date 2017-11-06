@@ -13,7 +13,7 @@
         <div class="bgLeft">
           最快捷的虚拟资产交易
           <p>IDCMEX专业人士和机构专注于比特币的资产置换</p>
-          <div>
+          <div @click="$router.push('/idcm')">
             交易中心
           </div>
         </div>
@@ -104,7 +104,7 @@
         </ul>
       </div>
       <div class="marketImg">
-        <img src="../assets/images/home/bg.png">
+        <img src="../assets/images/home/footImg.png">
       </div>
     </div>
     <div class="homeFoot">
@@ -332,7 +332,7 @@
     max-height: 920px;
     min-width: 1024px;
     height: 920px;
-    background-image: url('../assets/images/home/bg.png');
+    background-image: url('../assets/images/home/banner1.jpg');
     background-size: cover;
     display: flex;
     align-items: center;
@@ -366,7 +366,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: rgba(3,3,3,0.2);
+        background: rgba(3,3,3,0.4);
         padding: 60px 0;
         border-radius: 5px;
         .bgDev{
