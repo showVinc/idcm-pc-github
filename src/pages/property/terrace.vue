@@ -1,5 +1,5 @@
 <template>
-  <div class="skin-setting">
+  <div class="skin-setting cc">
     <h1 class="p-title">个人中心</h1>
 
     <div class="p-content">
@@ -14,8 +14,8 @@
           平台互转
         </div>
         <div class="input">
-          <input v-model="post.num" placeholder="可用数量"></input>
-          <el-form :inline="true" :model="formInline" class="demo-form-inline">
+          <!-- <input v-model="post.num" placeholder="可用数量"></input>
+          <el-form :inline="true" :model="formInline" class="demo-form-inline terace-select">
             <el-form-item>
               <el-select v-model="formInline.region" placeholder="平台">
                 <el-option label="区域一" value="shanghai"></el-option>
@@ -39,9 +39,46 @@
             <div class="right right2">
               发送验证码
             </div>
+          </div> -->
+
+          <div class="bgDev">
+            <input type="text" placeholder="可用数量" v-model="post.num">
+          </div>
+
+          <!-- 平台 -->
+          <div class="bgdev">
+            <el-select v-model="value" placeholder="平台">
+              <el-option
+                v-for="item in options"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </div>
+
+          <div class="bgdev">
+            <input type="text" placeholder="转出地址" v-model="post.ip">
+          </div>
+
+          <div class="bgdev">
+            <input type="text" placeholder="转出数量" v-model="post.outnum">
+          </div>
+
+
+          <div class="bgdev">
+            <input type="text" placeholder="资金密码" v-model="post.psw">
+          </div>
+          <div class="lastInput bgdev">
+            <input type="text" placeholder="验证码" v-model="post.code">
+            <img src="../../assets/images/home/yz.png">
+          </div>
+          <div class="lastInput bgdev">
+            <input type="text" placeholder="验证码" v-model="post.code1">
+            <div class="right">
+              发送验证码
+            </div>
           </div>
         </div >
-        <div class="button">
+        <div class="button"  @click="sub">
           <button>提交</button>
         </div>
       </div>
@@ -54,12 +91,22 @@
   export default {
     data() {
       return {
-        post:{
+        options: [{
+          value: '平台1',
+        }, {
+          value: '平台2',
+        }],
+         post:{
           num:'',
-          userEmail:'',
-          theme:'',
-          text:'',
+          gj:'zh',
+          tel:'',
+          psw:'',
+          code:'',
+          code1:'',
 
+          // ip
+          ip:'',
+          outnum:'',
         },
         formInline: {
           user: '',
@@ -70,7 +117,59 @@
 //    components: {
 //      Top,
 //      Foot
-//    }
+//    },
+ methods: {
+      sub(){
+        if(!this.post.num){
+          this.$message({
+            message: '可用数量不能为空',
+            type: 'warning'
+          });
+          return false
+        } else if(!this.post.values){
+          this.$message({
+            message: '平台选择不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.ip){
+          this.$message({
+            message: '转出地址不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.outnum){
+          this.$message({
+            message: '转出数量不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.psw){
+          this.$message({
+            message: '资金密码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.code){
+          this.$message({
+            message: '验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else  if(!this.post.code1){
+          this.$message({
+            message: '再次验证码不能为空',
+            type: 'warning'
+          });
+          return false
+        }else{
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          });
+        }
+      }
+    },
   }
 </script>
 <style lang="less" scoped type="text/less">
@@ -78,6 +177,36 @@
     font-size: 18px;
     color: #eaeaea;
     line-height: 36px;
+  }
+  .bgdev{
+    position: relative;
+    img{
+      position: absolute;
+      top: 10px;
+      right: 0;
+       width: 90px;
+        height: 30px;
+        float: right;
+    }
+    .right{
+      position: absolute;
+      right:0;
+      width: 90px;
+      height: 30px;
+      background: #999;
+      text-align: center;
+      line-height: 28px;
+      top:12px;
+    }
+  }
+  .el-select{
+    width: 352px;
+    height: 44px;
+    margin-bottom: 20px;
+    .el-input__inner{
+      background: #254161;
+      border:1px solid #516d8e;
+    }
   }
   .input{
     width: 340px;
@@ -91,32 +220,31 @@
       margin-bottom: 20px;
       padding:3px 20px;
       display: block;
-      color: #b3b3b3;
+      color: #eaeaea;
+      img{
+        width: 90px;
+        height: 30px;
+      }
     }
     .pos{
       position: relative;
-      .right{
-        position: absolute;
-        right:0;
-        top:0;
-      }
-      .right1{
-        width: 85px;
-        height: 28px;
-        background: #999;
-        text-align: center;
-        line-height: 28px;
-        top:12px;
-      }
-      .right2{
-        width: 139px;
-        height: 40px;
-        background: #356092;
-        text-align: center;
-        line-height: 40px;
-        top:5px;
-        border-radius: 5px;
-      }
+      /*.right{*/
+        /*position: absolute;*/
+        /*right:0;*/
+        /*top:0;*/
+      /*}*/
+      /*.right1{*/
+
+      /*}*/
+      /*.right2{*/
+        /*width: 139px;*/
+        /*height: 40px;*/
+        /*background: #356092;*/
+        /*text-align: center;*/
+        /*line-height: 40px;*/
+        /*top:5px;*/
+        /*border-radius: 5px;*/
+      /*}*/
     }
   }
   .button{
@@ -135,14 +263,28 @@
   }
 </style>
 <style type="text/less">
-  .el-input__icon+.el-input__inner {
+  .cc{
+   /*.el-input__icon+.el-input__inner {
     padding-right: 35px;
     width: 352px;
     height: 50px;
+    color: #ebebeb;
   }
   .el-input__inner{
     background: #254161;
     border:1px solid #516d8e;
     padding-left: 20px;
+  }*/
+    .input{
+      .bgdev{
+        .el-select{
+          .el-input__inner{
+            background: red;
+          }
+        }
+      }
+
+
+    }
   }
 </style>
