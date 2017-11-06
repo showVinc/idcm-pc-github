@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="homeBg">
-      <div class="bgWrap">
+      <div class="bgWrap" v-if="!userInfo">
         <div class="bgLeft">
           最快捷的虚拟资产交易
           <p>IDCMEX专业人士和机构专注于比特币的资产置换</p>
@@ -32,7 +32,7 @@
             <input type="text" placeholder="请输入手机号" v-model="post.tel">
           </div>
           <div class="bgDev">
-            <input type="text" placeholder="请输入密码" v-model="post.psw">
+            <input type="password" placeholder="请输入密码" v-model="post.psw">
           </div>
           <div class="lastInput bgDev">
             <input type="text" placeholder="验证码" v-model="post.code">
@@ -156,6 +156,7 @@
     data() {
       return {
         imgNum: 1,
+        userInfo:JSON.parse(localStorage.getItem('userInfo')),
         homeTop: [
           {
             name: 'CMY/BTC',
@@ -268,6 +269,8 @@
             message: '登录成功',
             type: 'success'
           });
+          localStorage.setItem('userInfo',JSON.stringify(this.post))
+          this.userInfo = JSON.parse(localStorage.getItem('userInfo'))
         }
       }
     },
@@ -540,7 +543,7 @@
         display: flex;
         justify-content: center;
         div{
-          margin: 0 20px;
+          margin: 0 40px;
           p{
             display: flex;
             flex-direction: column;

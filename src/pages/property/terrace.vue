@@ -242,23 +242,7 @@
     }
     .pos{
       position: relative;
-      /*.right{*/
-        /*position: absolute;*/
-        /*right:0;*/
-        /*top:0;*/
-      /*}*/
-      /*.right1{*/
 
-      /*}*/
-      /*.right2{*/
-        /*width: 139px;*/
-        /*height: 40px;*/
-        /*background: #356092;*/
-        /*text-align: center;*/
-        /*line-height: 40px;*/
-        /*top:5px;*/
-        /*border-radius: 5px;*/
-      /*}*/
     }
   }
   .button{
@@ -276,7 +260,7 @@
     }
   }
 </style>
-<style type="text/less">
+<style type="text/less" lang="less">
   .cc{
    /*.el-input__icon+.el-input__inner {
     padding-right: 35px;
@@ -293,9 +277,15 @@
       .bgdev{
         .el-select{
           .el-input__inner{
-            background: red;
+            width: 352px;
+            height: 50px;
+            background: #254161!important;
+            border:1px solid #516d8e;
             color: #ebebeb;
           }
+        }
+        .el-form-item{
+          margin-bottom: 10px;
         }
       }
 

@@ -177,6 +177,9 @@
   }
 </script>
 <style lang="less" scoped type="text/less">
+  .p-content{
+    min-width:1200px;
+  }
     .title{
     font-size: 18px;
     /*color: #eaeaea;*/
@@ -198,7 +201,8 @@
 
 /*tab*/
    .main {
-    width: 100%;
+     min-width: 686px;
+    width: 60%;
     .page {
       float: right;
     }
@@ -219,6 +223,9 @@
         text-align: left;
         line-height: 40px;
         padding: 0 5px;
+        &:first-child{
+          width:85px;
+        }
 
         &:first-child {
           padding-left:15px;

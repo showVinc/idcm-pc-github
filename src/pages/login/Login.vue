@@ -1,11 +1,11 @@
 <template>
   <div class="login">
     <div class="loginLogo" @click="$router.push('/')">
-      <img src="../../assets/images/home/logo.png">
+      <img src="../../assets/images/home/registerLogo.png">
     </div>
     <div class="loginMain">
       <div class="promptTit" v-if="$route.params&&$route.params.isReset==1">
-        <img src="../../assets/images/home/yz.png">密码重置成功，请重新登录
+        <img src="../../assets/images/home/success.png">密码重置成功，请重新登录
       </div>
       <div class="bgDev">
         <el-select v-model="value" placeholder="请选择">
@@ -85,6 +85,8 @@
             message: '登录成功',
             type: 'success'
           });
+          localStorage.setItem('userInfo',JSON.stringify(this.post))
+          this.$router.push('/')
         }
       }
     },

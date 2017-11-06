@@ -118,6 +118,7 @@
         this.list = data
       }
     }
+
   }
 </script>
 <style lang="less" scoped type="text/less">
@@ -126,6 +127,9 @@
     color: #eaeaea;
     line-height: 36px;
   }
+    .p-content{
+      min-width:1200px;
+    }
   .con{
     font-size: 14px;
     margin-top: 52px;
@@ -136,7 +140,8 @@
 
 /*tab*/
    .main {
-    width: 78%;
+    width: 60%;
+     min-width: 686px;
     .page {
       float: right;
     }
