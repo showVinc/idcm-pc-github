@@ -70,11 +70,11 @@ TAN Chuan Hoo。TAN对ETHNews表示：
     data() {
       return {
         newsList:[
-          {"img":require("../../assets/images/home/bg.png"),"title":"泰晤士高等教育透露学术界正在采用区块链技术","name":"IDCMEX","time":"2016.10.6","hourTime":"10:30","content":"泰晤士高等教育（Times Higher Education）发布了2018世界大学排名，而榜上有名的许多顶级学府都为保持其领先优势而增设了区块链技术课程。区块链在业界，尤其是金融届的应用已经发展的如火如荼，而如今..."},
+          {"img":require("../../assets/images/news/3.jpg"),"title":"泰晤士高等教育透露学术界正在采用区块链技术","name":"IDCMEX","time":"2016.10.6","hourTime":"10:30","content":"泰晤士高等教育（Times Higher Education）发布了2018世界大学排名，而榜上有名的许多顶级学府都为保持其领先优势而增设了区块链技术课程。区块链在业界，尤其是金融届的应用已经发展的如火如荼，而如今..."},
         ],
         hotList:[
-            {"img":require("../../assets/images/home/bg1.png"),"title":"shapeshift支持augur的去中心化预测市场 信用代币，声誉（REP）"},
-            {"img":require("../../assets/images/home/bg1.png"),"title":"shapeshift支持augur的去中心化预测市场 信用代币，声誉（REP）"}
+            {"img":require("../../assets/images/news/1.jpg"),"title":"shapeshift支持augur的去中心化预测市场 信用代币，声誉（REP）"},
+            {"img":require("../../assets/images/news/1.jpg"),"title":"shapeshift支持augur的去中心化预测市场 信用代币，声誉（REP）"}
         ],
         tagList:['火币网（10）','比特币（10）','香港（10）','中国（10）','汇集（10）','香港（10）','中国（10）','汇集（10）'],
         pagecount: 10   //  总页数
