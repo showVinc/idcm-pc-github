@@ -152,6 +152,7 @@
         width: 100%;
         height: auto;
         min-height: 150px;
+        object-fit: cover;
       }
 
     }
@@ -235,6 +236,7 @@
   .hot-cont img{
     width: 266px;
     height: 132px;
+    object-fit: cover;
   }
   .hot-cont .hot-title{
     color: #ebebeb;
