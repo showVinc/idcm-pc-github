@@ -85,6 +85,8 @@
             message: '登录成功',
             type: 'success'
           });
+          localStorage.setItem('userInfo',JSON.stringify(this.post))
+          this.$router.push('/')
         }
       }
     },

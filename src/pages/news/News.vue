@@ -1,7 +1,7 @@
 <template>
   <div>
     <head-top :num="3"></head-top>
-   
+
     <div class="skin-setting">
       <h1 class="p-title">新闻</h1>
 
@@ -18,7 +18,7 @@
               </dd>
             </dl>
           </a>
-            
+
             <!-- 页码  -->
           <div class="page right">
             <span class="item" @click="handlerPage(1)">首页</span>
@@ -69,20 +69,17 @@
       }
     },
     mounted () {
-      this.getList(1)
     },
     methods: {
       sub(){
 
-      }
+      },
       /**
        * 点击页码获取数据
        * */
-      // handlerPage(val) {
-      //   if(val > 0 && val <= this.pagecount) {
-      //     this.getList(val)
-      //   }
-      // },
+       handlerPage(val) {
+
+       },
 
       /**
        * 获取记录列表
@@ -104,7 +101,7 @@
       //   this.list = data
       // }
     }
-  
+
   }
 </script>
 <style lang="less" type="text/less" scoped>
@@ -170,7 +167,7 @@
   }
   .news-list .news-title{
     font-size: 14px;
-    
+
   }
   .news-list .news-times{
     font-size: 10px;
