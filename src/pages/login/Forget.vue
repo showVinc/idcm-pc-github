@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="loginLogo" @click="$router.push('/')">
-      <img src="../../assets/images/home/logo.png">
+      <img src="../../assets/images/home/registerLogo.png">
     </div>
     <div class="loginMain">
       <div class="bgDev">

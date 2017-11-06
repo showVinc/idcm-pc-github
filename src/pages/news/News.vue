@@ -17,7 +17,9 @@
                 <p class='news-content'>{{item.content}}</p>
               </dd>
             </dl>
+
           </div>
+
 
             <!-- 页码  -->
           <div class="page right">
@@ -69,20 +71,17 @@
       }
     },
     mounted () {
-      this.getList(1)
     },
     methods: {
       sub(){
 
-      }
+      },
       /**
        * 点击页码获取数据
        * */
-      // handlerPage(val) {
-      //   if(val > 0 && val <= this.pagecount) {
-      //     this.getList(val)
-      //   }
-      // },
+       handlerPage(val) {
+
+       },
 
       /**
        * 获取记录列表
