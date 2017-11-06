@@ -198,7 +198,8 @@
 
 /*tab*/
    .main {
-    width: 100%;
+     min-width: 686px;
+    /*width: 100%;*/
     .page {
       float: right;
     }
@@ -219,6 +220,9 @@
         text-align: left;
         line-height: 40px;
         padding: 0 5px;
+        &:first-child{
+          width:85px;
+        }
 
         &:first-child {
           padding-left:15px;

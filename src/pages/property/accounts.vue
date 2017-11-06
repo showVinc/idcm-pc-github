@@ -253,6 +253,7 @@
         &:first-child {
           text-align: left;
           padding-left: 15px;
+          width: 85px;
         }
         &:last-child {
           padding-right: 15px;
@@ -275,6 +276,9 @@
     span{
       padding-right: 20px;
     }
+  }
+  .p-content{
+    min-width: 1200px;
   }
 </style>
 <style>

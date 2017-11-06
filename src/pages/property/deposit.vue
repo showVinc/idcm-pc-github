@@ -166,7 +166,7 @@
             ip: '666666',
             // address: `登录${p}`,
             money:'1,325606',
-            procedure:'qweyhqwwuejjhsdfkahoiw***',
+            procedure:'qweyhqwwuejj hsdfkahoiw***',
             sum:'0.0005',
             newmoney:0.0005,
             status:'已完成',
@@ -211,6 +211,7 @@
 /*tab*/
    .main {
     width: 100%;
+     min-width: 719px;
     .page {
       float: right;
     }
@@ -231,10 +232,14 @@
         text-align: left;
         line-height: 40px;
         padding: 0 5px 0 5px;
+        &:nth-child(4){
+          max-width: 102px;
+        }
 
         &:first-child {
           text-align: left;
-          padding-left: 15px
+          padding-left: 15px;
+          width: 85px;
         }
         &:last-child {
           /*text-align: right;*/
@@ -264,5 +269,8 @@
     span{
       padding-right: 20px;
     }
+  }
+  .p-content{
+    min-width: 1200px;
   }
 </style>
