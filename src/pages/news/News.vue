@@ -153,15 +153,16 @@
         height: auto;
         min-height: 150px;
       }
-      dd{
-        float: right;
-        width: 42%;
+
+    }
+    dd{
+      float: right;
+      width: 39%!important;
+      color: #ebebeb;
+      padding-bottom: 49px;
+      border-bottom: 1px solid #516d8e;
+      p{
         color: #ebebeb;
-        padding-bottom: 49px;
-        border-bottom: 1px solid #516d8e;
-        p{
-          color: #ebebeb;
-        }
       }
     }
    /* &:nth(1){
@@ -172,7 +173,8 @@
         color: #fff;
       };
       dd{
-        height: 144px;
+        /*height: auto;*/
+        height:195px;
       }
   }
   /*.news-list dt{*/
