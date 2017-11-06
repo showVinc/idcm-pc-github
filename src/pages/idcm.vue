@@ -22,7 +22,7 @@
             <form class="idcm-form" v-if="p_show_buy">
               <label class="block-label">总额</label>
               <div class="form-item">
-                <input type="text" placeholder="0.00" v-model="buy_usd">
+                <input type="text" placeholder="0.00" v-model="present.buy_usd">
                 <span class="unit">USD</span>
               </div>
 
@@ -36,10 +36,16 @@
 
             <!--  卖  -->
             <form class="idcm-form" v-if="!p_show_buy">
-              <label class="block-label">总额</label>
+              <label class="block-label">金额</label>
               <div class="form-item">
-                <input type="text" placeholder="0.00" v-model="buy_usd">
+                <input type="text" placeholder="0.00" v-model="present.sell_usd">
                 <span class="unit">USD</span>
+              </div>
+
+              <label class="block-label">数量</label>
+              <div class="form-item" style="margin-bottom: 40px;">
+                <input type="text" placeholder="0.00" v-model="present.sell_btc">
+                <span class="unit">BTC</span>
               </div>
 
               <div class="ca-btc">
@@ -60,16 +66,10 @@
 
             <!--  买  -->
             <form class="idcm-form" v-if="l_show_buy">
-              <label class="block-label">数量</label>
+              <label class="block-label">总额</label>
               <div class="form-item">
-                <input type="text" placeholder="0.00" v-model="sell_btc1">
-                <span class="unit">BTC</span>
-              </div>
-
-              <label class="block-label">数量</label>
-              <div class="form-item" style="margin-bottom: 40px;">
-                <input type="text" placeholder="0.00" v-model="sell_btc2">
-                <span class="unit">BTC</span>
+                <input type="text" placeholder="0.00" v-model="limit.buy_usd">
+                <span class="unit">USD</span>
               </div>
 
               <div class="ca-btc">
@@ -82,15 +82,15 @@
 
             <!--  卖  -->
             <form class="idcm-form" v-if="!l_show_buy">
-              <label class="block-label">数量</label>
+              <label class="block-label">金额</label>
               <div class="form-item">
-                <input type="text" placeholder="0.00" v-model="sell_btc1">
+                <input type="text" placeholder="0.00" v-model="limit.sell_usd">
                 <span class="unit">BTC</span>
               </div>
 
               <label class="block-label">数量</label>
               <div class="form-item" style="margin-bottom: 40px;">
-                <input type="text" placeholder="0.00" v-model="sell_btc2">
+                <input type="text" placeholder="0.00" v-model="limit.sell_btc">
                 <span class="unit">BTC</span>
               </div>
 
@@ -348,9 +348,16 @@
     data () {
       return {
         chart_url: require('@/assets/images/idcm/icdm.png'),
-        buy_usd: '',
-        sell_btc1: '',
-        sell_btc2: '',
+        present: {  //  现价 表单
+          buy_usd: '',    //  买（输入的总额）
+          sell_usd: '',    //  卖（输入的金额）
+          sell_btc: ''    //  卖（输入的btc)
+        },
+        limit: {  //  限价 表单
+          buy_usd: '',    //  买（输入的总额）
+          sell_usd: '',    //  卖（输入的金额）
+          sell_btc: ''    //  卖（输入的btc)
+        },
         present_price: true, //  当前选中的现价 （限价：false)
         p_show_buy: true,   //  现价：当前选中的按钮是  买 （卖： false)
         l_show_buy: true,   //  限价：当前选中的按钮是  买 （卖： false)
