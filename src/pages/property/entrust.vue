@@ -177,6 +177,9 @@
   }
 </script>
 <style lang="less" scoped type="text/less">
+  .p-content{
+    min-width:1200px;
+  }
     .title{
     font-size: 18px;
     /*color: #eaeaea;*/
