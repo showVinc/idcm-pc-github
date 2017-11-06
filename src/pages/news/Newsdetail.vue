@@ -81,7 +81,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
       }
     },
     mounted () {
-      this.getList(1)
+      
     },
     methods: {
       sub(){
@@ -150,6 +150,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
     max-height: 500px;
     min-height:350px;
     padding-bottom: 60px;
+    object-fit: cover;
   }
   .news-list dd{
     color: #ebebeb;
@@ -205,6 +206,7 @@ TAN Chuan Hoo。TAN对ETHNews表示：
   .hot-cont img{
     width: 266px;
     height: 132px;
+    object-fit: cover;
   }
   .hot-cont .hot-title{
     color: #ebebeb;

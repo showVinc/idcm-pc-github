@@ -228,7 +228,8 @@
 
 /*tab*/
    .main {
-    width: 75%;
+    width: 60%;
+     min-width: 686px;
     .page {
       float: right;
     }
@@ -253,6 +254,7 @@
         &:first-child {
           text-align: left;
           padding-left: 15px;
+          width: 85px;
         }
         &:last-child {
           padding-right: 15px;
@@ -275,6 +277,9 @@
     span{
       padding-right: 20px;
     }
+  }
+  .p-content{
+    min-width: 1200px;
   }
 </style>
 <style>

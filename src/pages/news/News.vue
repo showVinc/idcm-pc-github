@@ -8,7 +8,7 @@
       <div class="p-content">
         <!--  左侧菜单  -->
         <div class="p-aside">
-          <a href="#" v-for='item in newsList'>
+          <div href="#" v-for='item in newsList'>
             <dl class="news-list"  @click="$router.push('/news/detail')">
               <dt><img v-bind:src="item.img" alt=""></dt>
               <dd>
@@ -17,7 +17,9 @@
                 <p class='news-content'>{{item.content}}</p>
               </dd>
             </dl>
-          </a>
+
+          </div>
+
 
             <!-- 页码  -->
           <div class="page right">
@@ -116,12 +118,13 @@
     min-width: 1200px;
   }
   .p-content{
-    height: 1377px;
+    max-height: 1630px;
     overflow: hidden;
   }
   .skin-setting .p-article {
     width: 30%;
     height: 100%;
+    height: 1910px;
     margin-left: 1%;
     background: #254161;
     padding-left: 0;
@@ -129,14 +132,40 @@
   }
   .skin-setting .p-aside {
     width: 69%;
-    height: 100%;
     background: #254161;
+    height: 1910px;
   }
   .news-list{
     height:650px;
     padding: 54px 60px 35px;
     box-sizing: border-box;
-    height: 248px;
+    max-height: 300px;
+    padding-bottom: 0;
+    dt{
+      float: left;
+      width: 49%;
+      height: 151px;
+      margin-right:60px;
+
+      min-height: 200px;
+      img{
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+        object-fit: cover;
+      }
+
+    }
+    dd{
+      float: right;
+      width: 39%!important;
+      color: #ebebeb;
+      padding-bottom: 49px;
+      border-bottom: 1px solid #516d8e;
+      p{
+        color: #ebebeb;
+      }
+    }
    /* &:nth(1){
       background: red;
     };*/
@@ -145,28 +174,25 @@
         color: #fff;
       };
       dd{
-        height: 144px;
+        /*height: auto;*/
+        height:195px;
       }
   }
-  .news-list dt{
-    float: left;
-    width: 272px;
-    height: 151px;
-    margin-right:60px;
-  }
-  .news-list dt img{
-    width: 100%;
-    height: 100%;
-  }
-  .news-list dd{
-    float: left;
-    width: 51%;
-    color: #ebebeb;
-    padding-bottom: 49px;
-    border-bottom: 1px solid #516d8e;
-  }
+  /*.news-list dt{*/
+    /*float: left;*/
+    /*width: 272px;*/
+    /*height: 151px;*/
+    /*margin-right:60px;*/
+  /*}*/
+  /*.news-list dt img{*/
+
+  /*}*/
+  /*.news-list dd{*/
+
+  /*}*/
   .news-list .news-title{
     font-size: 14px;
+    color:#ebebeb;
 
   }
   .news-list .news-times{
@@ -210,6 +236,7 @@
   .hot-cont img{
     width: 266px;
     height: 132px;
+    object-fit: cover;
   }
   .hot-cont .hot-title{
     color: #ebebeb;
